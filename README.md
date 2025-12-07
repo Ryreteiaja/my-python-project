@@ -7,8 +7,8 @@ import pandas as pd
 # 定数
 # =========================
 c = 2.99792458e8
-r = 40e-3
-L = 40e-3
+r = 50 # mm
+L = 50 # mm
 
 # =========================
 # ベッセル零点
@@ -36,7 +36,7 @@ for mode, x_dict in [("TE", x_te), ("TM", x_tm)]:
             for p in [1, 2]:
                 xmn = x_dict[(m, n)]
                 f = (c / (2*np.pi)) * np.sqrt(
-                    (xmn / r)**2 + (p*np.pi / L)**2
+                    (xmn / (r*1e-3))**2 + (p*np.pi / (L*1e-3))**2
                 )
                 rows.append({
                     "Type": mode,
